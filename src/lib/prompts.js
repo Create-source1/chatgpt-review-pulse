@@ -6,8 +6,9 @@ export function analyzePrompt(reviews) {
   RULES
   - Group the reviews into at most 5 themes.
   - Pick the 3 biggest themes by number of reviews.
-  - Pick exactly 3 quotes. Each quote must be copied word-for-word from one review, under 40 words, with no edits.
+  - Pick exactly 3 quotes. Each quote must be copied word-for-word from one review, under 25 words, with no edits.
   - Find ONE recurring confusion or pain point about a fee, charge, price, refund, trial or subscription. It may cover related money problems (unexpected charge, failed trial payment, refund request, cancelling). List EVERY review id that supports it in evidence_review_ids, not just the strongest two.
+  - Describe only what users said they experienced. Do not use words like "difficulties" or "problems getting refunds" unless a review says a refund was refused or hard to get.
   - Do not invent facts. If something is not in the reviews, leave it out.
   
   Return JSON only, in this shape:
@@ -42,4 +43,31 @@ export function analyzePrompt(reviews) {
   
   SOURCE DOCUMENTS
   ${docs}`;
+  }
+
+  export function pulsePrompt(analysis, reviewCount) {
+    const themes = analysis.top_themes
+      .map((t) => {
+        const th = analysis.themes.find((x) => x.name === t);
+        return `- ${t}: ${th?.review_ids?.length || 0} of ${reviewCount} reviews. ${th?.summary || ""}`;
+      })
+      .join("\n");
+  
+    return `You write a weekly product pulse for a product team. Use ONLY the analysis below.
+  
+  TOP THEMES
+  ${themes}
+  
+  FEE ISSUE: ${analysis.fee_issue.title} (${analysis.fee_issue.evidence_review_ids.length} reviews). ${analysis.fee_issue.confusion}
+  
+  RULES
+  - theme_lines: exactly 3 strings, one per top theme in the same order, at most 15 words each, plain language.
+  - key_observation: at most 45 words. What is going wrong or trending, and why it matters. Mention the fee issue.
+  - actions: exactly 3 concrete ideas for the product team, at most 18 words each, each tied to something in the analysis. No vague advice.
+  - Neutral tone. Do not invent numbers or facts.
+  - Be precise about scale. When fewer than 5 reviews support a point, say "a few reviews" or give the count. Never write "frequent" or "many" for those.
+  - Do not claim business impact (conversion, churn, revenue). Report what users said, not what it causes.
+  - Write the 3 actions as things to test or investigate (start with Test, Audit or Review), not as confirmed fixes.
+  
+  Return JSON only: {"theme_lines": ["","",""], "key_observation": "", "actions": ["","",""]}`;
   }
