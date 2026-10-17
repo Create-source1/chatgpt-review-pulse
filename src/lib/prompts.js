@@ -38,6 +38,7 @@ export function analyzePrompt(reviews) {
   - Neutral, facts-only tone. No apologies, no promises, no blame, no marketing words.
   - Cover what a confused customer needs: why a charge can happen, what cancelling does and does not do, the refund window and its conditions, and where to request a refund.
   - Do not include links or dates. They are added separately.
+  - Do not add details the source does not state (for example, do not say "automatically" unless the source does).
   
   Return JSON only: {"bullets": ["", ""]}
   
