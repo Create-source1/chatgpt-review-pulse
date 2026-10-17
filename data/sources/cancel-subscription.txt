@@ -1,0 +1,35 @@
+SOURCE: https://help.openai.com/en/articles/7232927
+PAGE: Canceling your ChatGPT subscription (OpenAI Help Center)
+CAPTURED: 17 Oct 2026
+NOTE: Condensed notes of the official page, wording shortened. Enterprise/Edu and Business steps trimmed. Always defer to the live page.
+
+SCOPE
+- Covers personal ChatGPT subscriptions and self-service ChatGPT Business subscriptions. Does not cover Enterprise or Edu plans.
+
+WHERE TO CANCEL
+- Cancel through the platform where the subscription was purchased.
+- Bought on chatgpt.com: ChatGPT account, Settings, Billing, then Cancel plan.
+- Bought through the Apple App Store: cancel in Apple subscriptions (Settings, name, Subscriptions, ChatGPT, Cancel Subscription).
+- Bought through Google Play: cancel in Google Play subscriptions (Play Store app, Subscriptions, ChatGPT, Cancel subscription), signed in to the Google account used to purchase.
+- Uninstalling the ChatGPT app does not cancel a subscription.
+- To stop future charges, deleting the ChatGPT account is not needed.
+
+TIMING
+- Cancel at least 24 hours before the next billing date to avoid being charged for the next period.
+- After an ordinary cancellation, paid features remain available until the end of the current billing period.
+- Cancelling stops future renewals. It does not automatically refund previous charges.
+
+DELETING AN ACCOUNT
+- Deleting a ChatGPT account cancels subscriptions billed directly by ChatGPT.
+- It does not cancel Apple App Store subscriptions. For Apple or Google Play, check and cancel the store subscription before deleting the account.
+
+REFUNDS
+- For subscriptions bought on chatgpt.com or through Google Play, request a refund through OpenAI Support while signed in to the account tied to the charge.
+- For Apple App Store subscriptions, request a refund directly from Apple.
+- Refund eligibility depends on the purchase and location (see the refund policy page).
+
+TROUBLESHOOTING
+- Missing subscription: a subscription bought on chatgpt.com does not appear in Apple or Google Play subscriptions. Check the purchase receipt to identify the billing platform, and check each Google or Apple account used.
+- Duplicate charges: check for subscriptions under different ChatGPT, Apple or Google accounts. Cancel the unwanted one through the platform that billed it.
+- Charge after cancellation: if cancelled less than 24 hours before the next billing date, the next charge may already have been processed. Also check whether another account or platform has an active subscription.
+- Cannot sign in to cancel: for subscriptions billed directly by ChatGPT, OpenAI Support may cancel using the account or billing email plus any two billing details (card last four digits, expiry date, billing address, date of recent charge). Never send the full card number.
