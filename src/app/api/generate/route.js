@@ -7,8 +7,10 @@ export async function GET() {
   try {
     const reviews = loadReviews();
     const analysis = await runAnalysis(); // runs once, reused below
-    const pulse = await buildPulse(analysis, reviews);
-    const explainer = await buildExplainer(analysis.fee_issue);
+    const [pulse, explainer] = await Promise.all([
+      buildPulse(analysis, reviews),
+      buildExplainer(analysis.fee_issue),
+    ]);
 
     return Response.json({
       date: new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }),

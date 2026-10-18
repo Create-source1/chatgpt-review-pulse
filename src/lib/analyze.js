@@ -6,7 +6,7 @@ const clean = (s) => s.replace(/\s+/g, " ").trim().toLowerCase();
 
 export async function runAnalysis() {
   const reviews = loadReviews();
-  const result = await askJson(analyzePrompt(reviews));
+  const result = await askJson(analyzePrompt(reviews), "analysis");
 
   // Safety check: every quote must appear in the original review
   result.quotes = (result.quotes || []).map((q) => {

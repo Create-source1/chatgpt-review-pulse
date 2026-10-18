@@ -1,12 +1,12 @@
-import { runAnalysis } from "@/lib/analyze";
 import { loadReviews } from "@/lib/reviews";
 import { buildPulse } from "@/lib/pulse";
 
-export async function GET() {
+export const maxDuration = 300;
+
+export async function POST(request) {
   try {
-    const analysis = await runAnalysis();
-    const pulse = await buildPulse(analysis, loadReviews());
-    return Response.json({ top_themes: analysis.top_themes, ...pulse });
+    const { analysis } = await request.json();
+    return Response.json(await buildPulse(analysis, loadReviews()));
   } catch (err) {
     return Response.json({ error: String(err.message || err) }, { status: 500 });
   }

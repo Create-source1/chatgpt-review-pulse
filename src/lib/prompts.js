@@ -66,9 +66,10 @@ export function analyzePrompt(reviews) {
   - key_observation: at most 45 words. What is going wrong or trending, and why it matters. Mention the fee issue.
   - actions: exactly 3 concrete ideas for the product team, at most 18 words each, each tied to something in the analysis. No vague advice.
   - Neutral tone. Do not invent numbers or facts.
-  - Be precise about scale. When fewer than 5 reviews support a point, say "a few reviews" or give the count. Never write "frequent" or "many" for those.
+  - Be precise about scale. When fewer than 5 reviews support a point, give the exact count (for example "one review" or "two reviews"). Never write "a few", "frequent" or "many" for those.
   - Do not claim business impact (conversion, churn, revenue). Report what users said, not what it causes.
   - Write the 3 actions as things to test or investigate (start with Test, Audit or Review), not as confirmed fixes.
+  - Do not put review counts inside theme_lines. Mention a count only for the fee issue, inside key_observation.
   
   Return JSON only: {"theme_lines": ["","",""], "key_observation": "", "actions": ["","",""]}`;
   }

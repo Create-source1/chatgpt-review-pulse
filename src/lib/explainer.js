@@ -4,7 +4,7 @@ import { explainerPrompt } from "@/lib/prompts";
 
 export async function buildExplainer(feeIssue) {
   const sources = loadSources();
-  const { bullets = [] } = await askJson(explainerPrompt(feeIssue, sources));
+  const { bullets = [] } = await askJson(explainerPrompt(feeIssue, sources), "explainer");
 
   const allText = sources.map((s) => s.text).join(" ");
   const numbers = bullets.join(" ").match(/\d+/g) || [];
